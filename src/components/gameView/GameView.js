@@ -3,9 +3,14 @@ import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
 
 function GameView() {
+  const [checkAnswers, setCheckAnswers] = useState(false);
   const [gameQuestion, setGameQuestion] = useState('');
   const [allWords, setAllWords] = useState([]);
   const [goodWords, setGoodWords] = useState([]);
+
+  const handleGameSubmit = () => {
+    setCheckAnswers(true);
+  };
 
   useEffect(() => {
     const chooseGameOption = Math.floor(Math.random() * gameRules.length);
@@ -23,6 +28,7 @@ function GameView() {
           return <WordContainer word={word} key={index} />;
         })}
       </div>
+      <button onClick={handleGameSubmit}>check answers</button>
     </div>
   );
 }
