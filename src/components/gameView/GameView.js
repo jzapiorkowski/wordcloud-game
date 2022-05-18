@@ -12,6 +12,10 @@ function GameView() {
     setCheckAnswers(true);
   };
 
+  const isWordChosenCorrectly = (word) => {
+    return goodWords.includes(word) ? true : false;
+  };
+
   useEffect(() => {
     const chooseGameOption = Math.floor(Math.random() * gameRules.length);
 
@@ -25,7 +29,14 @@ function GameView() {
       <h2>{gameQuestion}</h2>
       <div className='wordcloud'>
         {allWords.map((word, index) => {
-          return <WordContainer word={word} key={index} />;
+          return (
+            <WordContainer
+              word={word}
+              key={index}
+              showAnswers={checkAnswers}
+              isCorrectAnswer={isWordChosenCorrectly}
+            />
+          );
         })}
       </div>
       <button onClick={handleGameSubmit}>check answers</button>
