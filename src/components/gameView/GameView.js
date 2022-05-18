@@ -8,14 +8,6 @@ function GameView() {
   const [allWords, setAllWords] = useState([]);
   const [goodWords, setGoodWords] = useState([]);
 
-  const handleGameSubmit = () => {
-    setCheckAnswers(true);
-  };
-
-  const isWordChosenCorrectly = (word) => {
-    return goodWords.includes(word) ? true : false;
-  };
-
   useEffect(() => {
     const chooseGameOption = Math.floor(Math.random() * gameRules.length);
 
@@ -23,6 +15,14 @@ function GameView() {
     setAllWords(gameRules[chooseGameOption].all_words);
     setGoodWords(gameRules[chooseGameOption].good_words);
   }, []);
+
+  const handleGameSubmit = () => {
+    setCheckAnswers(true);
+  };
+
+  const isWordChosenCorrectly = (word) => {
+    return goodWords.includes(word) ? true : false;
+  };
 
   return (
     <div className='game-view'>
