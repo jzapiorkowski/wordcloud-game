@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
 
 function GameView() {
@@ -19,11 +20,7 @@ function GameView() {
       <h2>{gameQuestion}</h2>
       <div className='wordcloud'>
         {allWords.map((word, index) => {
-          return (
-            <div className='word-container' key={index}>
-              <p className='word'>{word}</p>
-            </div>
-          );
+          return <WordContainer word={word} key={index} />;
         })}
       </div>
     </div>
