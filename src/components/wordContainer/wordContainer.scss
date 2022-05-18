@@ -1,0 +1,11 @@
+.word-container {
+  &.clicked {
+    > .word {
+      color: gray;
+    }
+  }
+  .word {
+    font-size: 22px;
+    cursor: pointer;
+  }
+}

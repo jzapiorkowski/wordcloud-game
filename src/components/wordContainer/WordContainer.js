@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import './wordContainer.scss';
 
 function WordContainer({ word }) {
   const [clicked, setClicked] = useReducer((prevState) => !prevState, false);
