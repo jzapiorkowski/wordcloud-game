@@ -1,6 +1,7 @@
 import './App.css';
 import StartView from './components/startView/StartView';
 import { useState } from 'react';
+import GameView from './components/gameView/GameView';
 
 function App() {
   const [nickname, setNickname] = useState('');
@@ -15,6 +16,7 @@ function App() {
           setCurrentlyPlaying={setCurrentlyPlaying}
         />
       )}
+      {currentlyPlaying && <GameView />}
     </div>
   );
 }
