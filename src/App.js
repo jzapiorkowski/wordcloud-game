@@ -2,6 +2,7 @@ import './App.css';
 import StartView from './components/startView/StartView';
 import { useState } from 'react';
 import GameView from './components/gameView/GameView';
+import GameSummary from './components/gameSummary/GameSummary';
 
 function App() {
   const [nickname, setNickname] = useState('');
@@ -26,6 +27,9 @@ function App() {
               setIsGameFinished={setIsGameFinished}
             />
           )}
+      {isGameFinished && (
+        <GameSummary nickname={nickname} gameScore={gameScore} />
+      )}
     </div>
   );
 }
