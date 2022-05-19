@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './startView.scss';
 
 function StartView({ nickname, setNickname, setCurrentlyPlaying }) {
   const [displayNoNicknameError, setDisplayNoNicknameError] = useState(false);
@@ -25,10 +26,11 @@ function StartView({ nickname, setNickname, setCurrentlyPlaying }) {
         placeholder='Enter your nickname here...'
         onChange={handleChange}
       ></input>
+
+      <button onClick={handleClick}>play</button>
       {displayNoNicknameError && (
         <p className='no-nickname-error'>Set your nickname first!</p>
       )}
-      <button onClick={handleClick}>play</button>
     </div>
   );
 }
