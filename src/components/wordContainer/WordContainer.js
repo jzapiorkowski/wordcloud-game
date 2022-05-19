@@ -6,7 +6,7 @@ function WordContainer({ word, showAnswers, isCorrectAnswer }) {
   const [clicked, setClicked] = useReducer((prevState) => !prevState, false);
 
   const handleClick = () => {
-    setClicked();
+    !showAnswers && setClicked();
   };
 
   return (
