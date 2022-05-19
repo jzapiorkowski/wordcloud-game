@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import StartView from './components/startView/StartView';
 import { useState } from 'react';
 import GameView from './components/gameView/GameView';
