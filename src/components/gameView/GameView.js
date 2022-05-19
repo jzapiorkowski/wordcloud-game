@@ -7,6 +7,8 @@ function GameView() {
   const [gameQuestion, setGameQuestion] = useState('');
   const [allWords, setAllWords] = useState([]);
   const [goodWords, setGoodWords] = useState([]);
+  const [correctWordsCount, setCorrectWordsCount] = useState(0);
+  const [incorrectWordsCount, setIncorrectWordsCount] = useState(0);
 
   useEffect(() => {
     const chooseGameOption = Math.floor(Math.random() * gameRules.length);
@@ -35,6 +37,10 @@ function GameView() {
               key={index}
               showAnswers={checkAnswers}
               isCorrectAnswer={isWordChosenCorrectly}
+              setCorrectWordsCount={setCorrectWordsCount}
+              correctWordsCount={correctWordsCount}
+              setIncorrectWordsCount={setIncorrectWordsCount}
+              incorrectWordsCount={incorrectWordsCount}
             />
           );
         })}
