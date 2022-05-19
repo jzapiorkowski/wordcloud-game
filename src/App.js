@@ -7,22 +7,25 @@ function App() {
   const [nickname, setNickname] = useState('');
   const [currentlyPlaying, setCurrentlyPlaying] = useState(false);
   const [gameScore, setGameScore] = useState(0);
+  const [isGameFinished, setIsGameFinished] = useState(false);
 
   return (
     <div className='App'>
-      {!currentlyPlaying && (
-        <StartView
-          nickname={nickname}
-          setNickname={setNickname}
-          setCurrentlyPlaying={setCurrentlyPlaying}
-        />
-      )}
-      {currentlyPlaying && (
-        <GameView
-          setGameScore={setGameScore}
-          setCurrentlyPlaying={setCurrentlyPlaying}
-        />
-      )}
+      {!currentlyPlaying
+        ? !isGameFinished && (
+            <StartView
+              nickname={nickname}
+              setNickname={setNickname}
+              setCurrentlyPlaying={setCurrentlyPlaying}
+            />
+          )
+        : !isGameFinished && (
+            <GameView
+              setGameScore={setGameScore}
+              setCurrentlyPlaying={setCurrentlyPlaying}
+              setIsGameFinished={setIsGameFinished}
+            />
+          )}
     </div>
   );
 }

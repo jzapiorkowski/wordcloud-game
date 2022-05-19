@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
 
-function GameView({ setGameScore, setCurrentlyPlaying }) {
+function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
   const [checkAnswers, setCheckAnswers] = useState(false);
   const [gameQuestion, setGameQuestion] = useState('');
   const [allWords, setAllWords] = useState([]);
@@ -27,6 +27,7 @@ function GameView({ setGameScore, setCurrentlyPlaying }) {
       correctWordsCount * 2 -
         (incorrectWordsCount + goodWords.length - correctWordsCount)
     );
+    setIsGameFinished(true);
     setCurrentlyPlaying(false);
   };
 
