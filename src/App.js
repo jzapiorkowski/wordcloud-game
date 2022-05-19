@@ -6,6 +6,7 @@ import GameView from './components/gameView/GameView';
 function App() {
   const [nickname, setNickname] = useState('');
   const [currentlyPlaying, setCurrentlyPlaying] = useState(false);
+  const [gameScore, setGameScore] = useState(0);
 
   return (
     <div className='App'>
@@ -16,7 +17,12 @@ function App() {
           setCurrentlyPlaying={setCurrentlyPlaying}
         />
       )}
-      {currentlyPlaying && <GameView />}
+      {currentlyPlaying && (
+        <GameView
+          setGameScore={setGameScore}
+          setCurrentlyPlaying={setCurrentlyPlaying}
+        />
+      )}
     </div>
   );
 }

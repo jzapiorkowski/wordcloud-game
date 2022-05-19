@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
 
-function GameView() {
+function GameView({ setGameScore, setCurrentlyPlaying }) {
   const [checkAnswers, setCheckAnswers] = useState(false);
   const [gameQuestion, setGameQuestion] = useState('');
   const [allWords, setAllWords] = useState([]);
@@ -20,6 +20,14 @@ function GameView() {
 
   const handleGameSubmit = () => {
     setCheckAnswers(true);
+  };
+
+  const handleFinishGame = () => {
+    setGameScore(
+      correctWordsCount * 2 -
+        (incorrectWordsCount + goodWords.length - correctWordsCount)
+    );
+    setCurrentlyPlaying(false);
   };
 
   const isWordChosenCorrectly = (word) => {
@@ -45,7 +53,11 @@ function GameView() {
           );
         })}
       </div>
-      <button onClick={handleGameSubmit}>check answers</button>
+      {!checkAnswers ? (
+        <button onClick={handleGameSubmit}>check answers</button>
+      ) : (
+        <button onClick={handleFinishGame}>finish game</button>
+      )}
     </div>
   );
 }
