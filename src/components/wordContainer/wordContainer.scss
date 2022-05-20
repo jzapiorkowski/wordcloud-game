@@ -7,5 +7,11 @@
   .word {
     font-size: 22px;
     cursor: pointer;
+    &.good {
+      color: green;
+    }
+    &.bad {
+      color: red;
+    }
   }
 }
