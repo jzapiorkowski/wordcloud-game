@@ -1,5 +1,6 @@
 .word-container {
   position: absolute;
+  text-align: center;
   &.clicked {
     > .word {
       color: gray;
