@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
 import './gameView.scss';
+import generateWordPositions from '../../utils/GenerateWordPositions';
 
 function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
   const [checkAnswers, setCheckAnswers] = useState(false);
@@ -36,7 +37,7 @@ function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
     return goodWords.includes(word) ? true : false;
   };
 
-  const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
+  const wordsPositions = generateWordPositions(allWords.length, 1150, 550);
 
   return (
     <div className='game-view'>
@@ -53,8 +54,8 @@ function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
               correctWordsCount={correctWordsCount}
               setIncorrectWordsCount={setIncorrectWordsCount}
               incorrectWordsCount={incorrectWordsCount}
-              randomBottom={`${getRandomNumber(0, 550)}px`}
-              randomRight={`${getRandomNumber(0, 1150)}px`}
+              randomBottom={`${wordsPositions[index][0]}px`}
+              randomRight={`${wordsPositions[index][1]}px`}
             />
           );
         })}
