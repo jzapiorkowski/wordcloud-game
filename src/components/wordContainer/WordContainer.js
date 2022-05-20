@@ -43,7 +43,12 @@ function WordContainer({
           word={word}
         />
       )}
-      <p className='word' onClick={handleClick}>
+      <p
+        className={`word ${
+          showAnswers && (isCorrectAnswer(word) ? 'good' : clicked ? 'bad' : '')
+        }`}
+        onClick={handleClick}
+      >
         {word}
       </p>
     </div>
