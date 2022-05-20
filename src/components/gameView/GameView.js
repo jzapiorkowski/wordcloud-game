@@ -37,12 +37,38 @@ function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
     return goodWords.includes(word) ? true : false;
   };
 
-  const wordsPositions = generateWordPositions(allWords.length, 1150, 550);
+  const setWordcloudWidth = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth < 400) return windowWidth;
+    else if (windowWidth < 600) return 400;
+    else if (windowWidth < 800) return 600;
+    else if (windowWidth < 1000) return 800;
+    else if (windowWidth < 1400) return 1000;
+    else return 1200;
+  };
+
+  const setWordcloudHeight = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth < 600) return 1000;
+    else if (windowWidth < 800) return 800;
+    else return 600;
+  };
+
+  const wordsPositions = generateWordPositions(
+    allWords.length,
+    setWordcloudWidth() - 100,
+    setWordcloudHeight() - 50
+  );
 
   return (
     <div className='game-view'>
       <h2>{gameQuestion}</h2>
-      <div className='wordcloud'>
+      <div
+        className='wordcloud'
+        style={{ width: setWordcloudWidth(), height: setWordcloudHeight() }}
+      >
         {allWords.map((word, index) => {
           return (
             <WordContainer
