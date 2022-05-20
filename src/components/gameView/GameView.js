@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import WordContainer from '../wordContainer/WordContainer';
 import gameRules from './GameRules.json';
+import './gameView.scss';
 
 function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
   const [checkAnswers, setCheckAnswers] = useState(false);
