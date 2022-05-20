@@ -40,7 +40,7 @@ function WordContainer({
 
   return (
     <div
-      className={`word-container ${clicked && 'clicked'}`}
+      className={`word-container ${clicked ? 'clicked' : ''}`}
       style={{ bottom: bottom.current, right: right.current }}
     >
       {showAnswers && (
