@@ -2,9 +2,9 @@ import React from 'react';
 
 function DisplayIfWordIsChosenCorrectly({ word, isClicked, isCorrectAnswer }) {
   if (isCorrectAnswer(word)) {
-    return <p>Good</p>;
+    return <p style={{ color: 'lightgreen' }}>Good</p>;
   } else if (isClicked) {
-    return <p>Bad</p>;
+    return <p style={{ color: 'lightcoral' }}>Bad</p>;
   }
 }
 
