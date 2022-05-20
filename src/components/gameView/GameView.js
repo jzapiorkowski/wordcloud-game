@@ -36,6 +36,8 @@ function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
     return goodWords.includes(word) ? true : false;
   };
 
+  const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
+
   return (
     <div className='game-view'>
       <h2>{gameQuestion}</h2>
@@ -51,6 +53,8 @@ function GameView({ setGameScore, setCurrentlyPlaying, setIsGameFinished }) {
               correctWordsCount={correctWordsCount}
               setIncorrectWordsCount={setIncorrectWordsCount}
               incorrectWordsCount={incorrectWordsCount}
+              randomBottom={`${getRandomNumber(0, 550)}px`}
+              randomRight={`${getRandomNumber(0, 1150)}px`}
             />
           );
         })}

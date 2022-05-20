@@ -1,4 +1,5 @@
 .word-container {
+  position: absolute;
   &.clicked {
     > .word {
       color: gray;

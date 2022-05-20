@@ -10,9 +10,13 @@ function WordContainer({
   setIncorrectWordsCount,
   correctWordsCount,
   incorrectWordsCount,
+  randomBottom,
+  randomRight,
 }) {
   const [clicked, setClicked] = useReducer((prevState) => !prevState, false);
   const isMounted = useRef(false);
+  const bottom = useRef(randomBottom);
+  const right = useRef(randomRight);
 
   useEffect(() => {
     if (isMounted.current) {
@@ -35,7 +39,10 @@ function WordContainer({
   };
 
   return (
-    <div className={`word-container ${clicked && 'clicked'}`}>
+    <div
+      className={`word-container ${clicked && 'clicked'}`}
+      style={{ bottom: bottom.current, right: right.current }}
+    >
       {showAnswers && (
         <DisplayIfWordIsChosenCorrectly
           isClicked={clicked}
