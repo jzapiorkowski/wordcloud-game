@@ -42,6 +42,7 @@ function WordContainer({
     <div
       className={`word-container ${clicked ? 'clicked' : ''}`}
       style={{ bottom: bottom.current, right: right.current }}
+      data-testid='word-container'
     >
       {showAnswers && (
         <DisplayIfWordIsChosenCorrectly
